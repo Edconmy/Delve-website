@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward Conmy - Talent Advisor & Organisational Design Consultant</title>
+<meta name="description" content="Talent advisor and organisational design consultant. Helping large regulated organisations build capability and design better structures and ways of working.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A0F1E;
+    --yellow: #FED72B;
+    --white: #ffffff;
+    --off-white: #F7F5F0;
+    --mid: #555555;
+    --light: #888888;
+    --border: #e2e2e2;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo-badge {
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 11px;
+    padding: 3px 8px;
+    letter-spacing: 0.04em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  nav ul a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--mid);
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--navy); }
+
+  .nav-cta {
+    font-family: var(--mono) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: var(--navy) !important;
+    border: 1.5px solid var(--navy);
+    padding: 8px 18px;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--navy) !important;
+    color: var(--white) !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 40%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(254,215,43,0.025) 40px,
+      rgba(254,215,43,0.025) 41px
+    );
+    pointer-events: none;
+  }
+
+  .hero-left { position: relative; z-index: 1; }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--yellow);
+  }
+
+  .hero h1 {
+    font-family: var(--mono);
+    font-size: clamp(34px, 3.8vw, 56px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--yellow);
+    display: block;
+  }
+
+  .hero-bio {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  .hero-bio strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-yellow {
+    background: var(--yellow);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 14px 28px;
+    display: inline-block;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s, transform 0.15s;
+    text-transform: uppercase;
+  }
+
+  .btn-yellow:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .btn-outline {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    font-weight: 300;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-outline:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  .hero-right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.04);
+    border-left: 2px solid rgba(254,215,43,0.4);
+    padding: 20px 24px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .hero-stat:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: var(--yellow);
+  }
+
+  .hero-stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(254,215,43,0.5);
+    margin-bottom: 6px;
+  }
+
+  .hero-stat p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .hero-stat p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  /* SHARED SECTION */
+  .section { padding: 96px 48px; }
+  .bg-off { background: var(--off-white); }
+  .bg-white { background: var(--white); }
+  .bg-dark { background: var(--navy); }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    background: var(--yellow);
+    color: var(--navy);
+  }
+
+  .bg-dark .section-eyebrow {
+    background: rgba(254,215,43,0.15);
+    color: var(--yellow);
+  }
+
+  .section-title {
+    font-family: var(--mono);
+    font-size: clamp(22px, 2.4vw, 36px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    max-width: 620px;
+  }
+
+  .bg-dark .section-title { color: var(--white); }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--mid);
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 52px;
+    font-weight: 300;
+  }
+
+  .bg-dark .section-intro { color: rgba(255,255,255,0.55); }
+
+  /* APPROACH STRIP */
+  .approach-strip {
+    background: var(--yellow);
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .approach-item {}
+
+  .approach-item h3 {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .approach-item p {
+    font-size: 14px;
+    color: rgba(10,15,30,0.7);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* CASE STUDIES */
+  .cases { display: flex; flex-direction: column; gap: 2px; }
+
+  .case {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    gap: 40px;
+    align-items: start;
+    padding: 40px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .case:hover { border-color: var(--yellow); }
+
+  .case-meta {}
+
+  .case-client {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+
+  .case-type {
+    font-size: 13px;
+    color: var(--light);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .case-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: var(--off-white);
+    color: var(--mid);
+  }
+
+  .case-content h3 {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .case-content p {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .case-outcome {
+    text-align: right;
+    flex-shrink: 0;
+    min-width: 120px;
+  }
+
+  .case-outcome-num {
+    font-family: var(--mono);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .case-outcome-label {
+    font-size: 12px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    padding: 40px 32px;
+    border-top: 2px solid rgba(254,215,43,0.3);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .service-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: var(--yellow);
+  }
+
+  .service-duration {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(254,215,43,0.6);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .service-card h3 {
+    font-family: var(--mono);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .service-outcomes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-outcomes li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .service-outcomes li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--yellow);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .testimonial {
+    background: var(--white);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+    color: var(--navy);
+    line-height: 1.75;
+    font-weight: 300;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .testimonial-quote::before { content: '\201C'; }
+  .testimonial-quote::after { content: '\201D'; }
+
+  .testimonial-author {}
+
+  .testimonial-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .testimonial-role {
+    font-size: 12px;
+    color: var(--light);
+    font-weight: 300;
+  }
+
+  .testimonial-org {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    background: var(--off-white);
+    padding: 3px 8px;
+  }
+
+  /* CREDENTIALS */
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .cred-list { display: flex; flex-direction: column; }
+
+  .cred-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .cred-item:first-child { border-top: 1px solid var(--border); }
+
+  .cred-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--light);
+    padding-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .cred-content h4 {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    letter-spacing: -0.01em;
+  }
+
+  .cred-content p {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .cred-aside { display: flex; flex-direction: column; gap: 2px; }
+
+  .cred-block {
+    padding: 28px 32px;
+  }
+
+  .cred-block.dark {
+    background: var(--navy);
+  }
+
+  .cred-block.yellow {
+    background: var(--yellow);
+  }
+
+  .cred-block h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .cred-block.dark h4 { color: rgba(254,215,43,0.7); }
+  .cred-block.yellow h4 { color: var(--navy); }
+
+  .cred-block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cred-block li {
+    font-size: 13px;
+    font-weight: 300;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .cred-block.dark li { color: rgba(255,255,255,0.65); }
+  .cred-block.yellow li { color: var(--navy); }
+
+  .cred-block li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+  }
+
+  .cred-block.dark li::before { color: var(--yellow); }
+  .cred-block.yellow li::before { color: rgba(10,15,30,0.4); }
+
+  .sector-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .sector-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 17px;
+    color: var(--mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+
+  .contact-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-line {
+    display: flex;
+    gap: 20px;
+    align-items: baseline;
+    font-size: 14px;
+  }
+
+  .contact-line-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    min-width: 64px;
+    flex-shrink: 0;
+  }
+
+  .contact-line a, .contact-line span {
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  .contact-line a {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-line a:hover { border-color: var(--navy); }
+
+  .contact-card {
+    background: var(--navy);
+    padding: 44px;
+  }
+
+  .contact-card-name {
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .contact-card-title {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-card-bio {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .contact-card-badge {
+    display: inline-block;
+    margin-top: 24px;
+    background: var(--yellow);
+    color: var(--navy);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-logo span {
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+
+  footer p { font-size: 12px; color: rgba(255,255,255,0.25); font-weight: 300; }
+
+  footer a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--yellow); }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    nav { padding: 0 24px; }
+    nav ul { gap: 16px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+    .section { padding: 64px 24px; }
+    .approach-strip { grid-template-columns: 1fr; padding: 40px 24px; }
+    .case { grid-template-columns: 1fr; gap: 20px; }
+    .case-outcome { text-align: left; }
+    .services-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .credentials-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Edward Conmy
+    <span class="nav-logo-badge">Delve</span>
+  </div>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div style="display:flex; align-items:flex-start; gap:20px; margin-bottom:24px;">
+      <img src="ec_headshot.png" alt="Edward Conmy" style="width:150px;height:150px;border-radius:50%;flex-shrink:0;border:3px solid rgba(254,215,43,0.3);">
+      <p class="hero-label" style="margin-bottom:0;align-self:center;">Dublin — available for consulting and advisory engagements</p>
+    </div>
+    <h1>Talent advisor
+      <em>and organisational</em>
+      <em>design consultant.</em>
+    </h1>
+    <p class="hero-bio">
+      For 15 years I have helped <strong>large organisations</strong> hire the right people, design the right structures for them to work in, and improve the ways of working that determine whether they deliver or not. Getting all three right is what I care about.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-yellow">Get in touch</a>
+      <a href="#work" class="btn-outline">See the work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <p class="hero-stat-label">Disciplines</p>
+      <p><strong>Talent solutions, service design and organisational design</strong> - three disciplines, rarely found together, all at practitioner level.</p>
+    </div>
+    <div class="hero-stat">
+      <p class="hero-stat-label">Clients</p>
+      <p><strong>Bank of Ireland, Musgrave, Smartbox, PTSB, Aer Lingus, ESW</strong> and others. Complex programmes, regulated environments.</p>
+    </div>
+    <div class="hero-stat">
+      <p class="hero-stat-label">The model</p>
+      <p><strong>Advisory, delivery and specialist talent placement.</strong> I do the work, bring in trusted practitioners, or find the right people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH STRIP -->
+<div class="approach-strip">
+  <div class="approach-item">
+    <h3>Talent advisory</h3>
+    <p>I help organisations work out what talent they need, then find and place the right people. Permanent, contract and managed.</p>
+  </div>
+  <div class="approach-item">
+    <h3>Organisational design</h3>
+    <p>Structuring teams, roles and ways of working so that organisations can deliver on their strategy. Research-led, evidence-based, built around how people actually work.</p>
+  </div>
+  <div class="approach-item">
+    <h3>Service design</h3>
+    <p>Applying human-centred design methods to understand where structure, process or capability is creating friction - and co-designing solutions with internal teams.</p>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section class="section bg-off" id="work">
+  <span class="section-eyebrow">Selected work</span>
+  <h2 class="section-title">Research-led. Outcome-driven.</h2>
+  <p class="section-intro">A selection of projects across service design, organisational design and talent solutions. Real clients, real briefs, measurable results.</p>
+
+  <div class="cases">
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Bank of Ireland</p>
+        <p class="case-type">Service design consulting</p>
+        <span class="case-tag">Management capability</span>
+      </div>
+      <div class="case-content">
+        <h3>Redesigning a management training programme</h3>
+        <p>BOI runs a management training course for approximately 2,000 people managers. Post-pandemic, the brief was to redesign how training was delivered to better align with manager needs and organisational capability requirements. I led the research - 16 interviews, a stakeholder mapping exercise with 19 participants, and two co-design workshops - to generate evidence-based recommendations the internal team could implement.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">15%</p>
+        <p class="case-outcome-label">uplift in user feedback scores across all four criteria</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Bank of Ireland</p>
+        <p class="case-type">Service design consulting</p>
+        <span class="case-tag">Customer communications</span>
+      </div>
+      <div class="case-content">
+        <h3>Evaluating the impact of customer communications</h3>
+        <p>BOI Operations needed to understand how customers and frontline colleagues experienced the bank's communications - type, form, frequency and usefulness. Over a 10-week sprint I facilitated workshops and interviews with frontline staff, and partnered with Red C Research to access customers across multiple segments. Insights were synthesised to co-design improvements across five communication channels.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">2M+</p>
+        <p class="case-outcome-label">customers affected across six priority opportunity areas</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Bank of Ireland</p>
+        <p class="case-type">Service design consulting</p>
+        <span class="case-tag">Process simplification</span>
+      </div>
+      <div class="case-content">
+        <h3>Simplifying internal processes</h3>
+        <p>The Group transformation team had established a simplification workstream to identify and remove waste from ways of working. Over an 8-week sprint I facilitated stakeholder interviews, mapped the organisation, ran a prioritisation workshop with 16 participants, and co-designed two scalable concepts. Both - an Ideas Hub and a Simplified Wiki - were built in MS Power BI and launched.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">142</p>
+        <p class="case-outcome-label">ideas generated and prioritised. Two concepts built and launched.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Smartbox Groupe</p>
+        <p class="case-type">Innovation sprint</p>
+        <span class="case-tag">Cross-functional innovation</span>
+      </div>
+      <div class="case-content">
+        <h3>Activating cross-functional innovation capability</h3>
+        <p>Smartbox had pivoted from volume-focused sales to profit maximisation but internal teams were not aligned to deliver that shift. I designed and ran a rapid innovation sprint engaging 11 stakeholders across 8 departments, mapped the end-to-end customer journey, validated internal hypotheses against 58 competitor sites and retail visits in France and Spain, and facilitated a workshop that built momentum for action.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">7.6%</p>
+        <p class="case-outcome-label">increase in average order value. €79 to €85. Three changes live within 19 days.</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Bank of Ireland</p>
+        <p class="case-type">Talent solutions</p>
+        <span class="case-tag">Team build</span>
+      </div>
+      <div class="case-content">
+        <h3>Building a continuous innovation team</h3>
+        <p>Defined the organisational structure and built the capability needed to run a continuous end-to-end innovation programme. I designed the team model, advised on operating principles and governance, and sourced 16 specialists across product, UX, data and delivery functions. The team ran for 18 months delivering ongoing innovation across the bank's digital and operational channels.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">16</p>
+        <p class="case-outcome-label">person cross-functional team built and operational over 18 months</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-meta">
+        <p class="case-client">Musgrave Group</p>
+        <p class="case-type">Talent solutions</p>
+        <span class="case-tag">Digital capability</span>
+      </div>
+      <div class="case-content">
+        <h3>Defining and building a digital capability</h3>
+        <p>A well-known retail group needed to define and execute a digital marketing and sales transformation. I engaged a senior digital consultant to work alongside the business to assess people, training and technology gaps. Based on that diagnostic, we co-designed a new digital lab structure and recruited the interim managers needed to run it across digital marketing, UX, ecommerce and digital delivery.</p>
+      </div>
+      <div class="case-outcome">
+        <p class="case-outcome-num">✓</p>
+        <p class="case-outcome-label">Digital lab established and staffed. Interim managers executing the transformation plan.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section bg-dark" id="services">
+  <span class="section-eyebrow">How I work</span>
+  <h2 class="section-title">Three ways to engage.</h2>
+  <p class="section-intro">Every engagement is different. The model adapts to what you actually need - from a rapid diagnostic sprint to full organisational design and embedded delivery capability.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <p class="service-duration">1 week — In studio</p>
+      <h3>Organisational readiness sprint</h3>
+      <p>A high-energy, condensed engagement designed to rapidly diagnose capability gaps and develop targeted interventions. For organisations that need to act on a focused challenge quickly.</p>
+      <ul class="service-outcomes">
+        <li>Validated capability improvement opportunities</li>
+        <li>Prioritised organisational design concepts</li>
+        <li>Pilot intervention and scoping plan</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <p class="service-duration">8 - 12 weeks — In studio</p>
+      <h3>Full organisational design & capability project</h3>
+      <p>A comprehensive engagement from initial capability assessment through to validated interventions and implementation roadmap. Research-led, stakeholder-validated, built for delivery.</p>
+      <ul class="service-outcomes">
+        <li>Stakeholder alignment and buy-in</li>
+        <li>Deep insight through employee and customer research</li>
+        <li>Validated organisational design concepts</li>
+        <li>Pilot intervention tested with users</li>
+        <li>Follow-up implementation plan</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <p class="service-duration">13+ weeks — In house</p>
+      <h3>Implementation - embedding capability</h3>
+      <p>Transforming organisational design concepts into embedded capability. I help organisations transition from design to delivery by providing expert support and burst capacity throughout execution.</p>
+      <ul class="service-outcomes">
+        <li>Capability audit and team structure review</li>
+        <li>Specialist sourcing and onboarding</li>
+        <li>Flexible resource - on and off as needed</li>
+        <li>Knowledge transfer to build internal capability</li>
+        <li>One invoice per month</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-white" id="about">
+  <span class="section-eyebrow">What clients say</span>
+  <h2 class="section-title">Delivered. Evidenced. Recommended.</h2>
+  <p class="section-intro">A selection of testimonials from clients across service design, organisational design and talent solutions work.</p>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p class="testimonial-quote">We worked with Edward on service design projects that have had a significant impact on both our employee workflows and our customer experience. His collaborative, research-driven approach provided insights that improved internal processes, which in turn led to better customer satisfaction.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Jon Sinden</p>
+        <p class="testimonial-role">Head of UX</p>
+        <span class="testimonial-org">Bank of Ireland</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-quote">I've engaged Ed to run a service design sprint to help us understand our customers' perception of our comms. The research-led approach unlocked key insights that we turned into new ways of working. It was a highly engaged project and helped get buy in from the team as they were involved from the very beginning.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Dan Heaslip</p>
+        <p class="testimonial-role">Design and CX Manager</p>
+        <span class="testimonial-org">Bank of Ireland</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-quote">We asked Edward to engage the wider ecommerce team in a research and ideation project to help us improve on core metrics. He ran an efficient, impactful sprint, grounded in research and collaborative ideation. This helped refine our strategy and supplied immediate points for action. I'm delighted to recommend Ed to my network.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Frank Gaine</p>
+        <p class="testimonial-role">Director of Insights & Experience</p>
+        <span class="testimonial-org">Smartbox</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-quote">Having worked with Edward and the Rattleberry team on a number of assignments I would not hesitate to recommend them to other businesses looking to hire the right talent needed for growth and transformation.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Justin Cullen</p>
+        <p class="testimonial-role">Chief Innovation Officer</p>
+        <span class="testimonial-org">Core Media Group</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-quote">I've worked with Ed since he first started Rattleberry, and I am happy to recommend his recruitment services if you are looking for hard to find designers and digital professionals. He really understands the digital experience world and represents our company well to potential candidates.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Fergal O'Connell</p>
+        <p class="testimonial-role">Director of Digital Experience</p>
+        <span class="testimonial-org">Aer Lingus</span>
+      </div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-quote">We worked with Ed on a number of key strategic hires across many of our businesses. He presented us with shortlists of qualified candidates who all aligned with our culture and values. The process was managed expertly from start to finish.</p>
+      <div class="testimonial-author">
+        <p class="testimonial-name">Anthony Quigley</p>
+        <p class="testimonial-role">Founder</p>
+        <span class="testimonial-org">Code Institute / DMI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="section bg-off">
+  <span class="section-eyebrow">Background</span>
+  <h2 class="section-title">Fifteen years of delivery.</h2>
+  <p class="section-intro">Practitioner experience across talent solutions, service design and organisational transformation. Not frameworks. Work that was done.</p>
+
+  <div class="credentials-grid">
+    <div class="cred-list">
+      <div class="cred-item">
+        <span class="cred-year">2024 — now</span>
+        <div class="cred-content">
+          <h4>Delve Service Design Ltd — Founder & principal consultant</h4>
+          <p>Talent acquisition, organisational design and service design consulting for large regulated enterprises.</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-year">Jan — Sep 2025</span>
+        <div class="cred-content">
+          <h4>Each&Other — Business development consultant</h4>
+          <p>Business development for a leading UX and service design agency. Five proposals secured, two sales closed.</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-year">2015 — 2024</span>
+        <div class="cred-content">
+          <h4>Rattleberry — Founder & managing director</h4>
+          <p>Specialist consulting and contractor agency focused on digital transformation and UX. Grew to €1m turnover in 2023.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cred-aside">
+      <div class="cred-block dark">
+        <h4>Education</h4>
+        <ul>
+          <li>Postgraduate Diploma in Service Design, NCAD</li>
+          <li>Master of Arts, Culture & Media Studies, TU Dublin</li>
+          <li>Bachelor of Commerce (Marketing) 2:1, UCD</li>
+        </ul>
+      </div>
+      <div class="cred-block dark">
+        <h4>Professional development</h4>
+        <ul>
+          <li>Service Design Practitioner, Service Design Network</li>
+          <li>AI Fundamentals for Designers, UX Design Institute</li>
+          <li>Human Centred Service Design, IDEO U</li>
+          <li>Digital Product Management, University of Virginia / Coursera</li>
+        </ul>
+      </div>
+      <div class="cred-block yellow">
+        <h4>Sector experience</h4>
+        <div class="sector-tags" style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 8px;background:rgba(10,15,30,0.08);color:var(--navy);">Financial services</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 8px;background:rgba(10,15,30,0.08);color:var(--navy);">Retail & consumer</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 8px;background:rgba(10,15,30,0.08);color:var(--navy);">Technology & digital</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 8px;background:rgba(10,15,30,0.08);color:var(--navy);">Insurance</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;padding:4px 8px;background:rgba(10,15,30,0.08);color:var(--navy);">Telecommunications</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section bg-white" id="contact">
+  <span class="section-eyebrow">Get in touch</span>
+  <h2 class="section-title">Let's talk.</h2>
+
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro">If you are working on an organisational design or service design challenge - or need specialist talent to deliver on one - get in touch. I will tell you quickly whether I can help, and honestly if I cannot.</p>
+      <div class="contact-lines">
+        <div class="contact-line">
+          <span class="contact-line-label">Email</span>
+          <a href="mailto:edward@delve.ie">edward@delve.ie</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-line-label">Phone</span>
+          <a href="tel:+353879821942">+353 87 982 1942</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-line-label">LinkedIn</span>
+          <a href="https://linkedin.com/in/econmy" target="_blank" rel="noopener">linkedin.com/in/econmy</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-line-label">Web</span>
+          <a href="https://delve.ie">delve.ie</a>
+        </div>
+        <div class="contact-line">
+          <span class="contact-line-label">Based</span>
+          <span>Dublin, Ireland</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <p class="contact-card-name">Edward<br>Conmy</p>
+      <p class="contact-card-title">Talent advisor & organisational design consultant — Delve Service Design Ltd</p>
+      <p class="contact-card-bio">For 15+ years I have helped large organisations across financial services, retail and technology recruit the capability and design the structure they need to deliver better outcomes - for customers and colleagues alike.</p>
+      <span class="contact-card-badge">Delve Service Design Ltd</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Edward Conmy <span>Delve</span></div>
+  <p>Delve Service Design Ltd &nbsp;&middot;&nbsp; Dublin, Ireland</p>
+  <a href="mailto:edward@delve.ie">edward@delve.ie</a>
+</footer>
+
+</body>
+</html>
