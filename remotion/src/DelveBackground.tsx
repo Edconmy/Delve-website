@@ -15,7 +15,6 @@ export const BG_VIDEO_CONFIG = {
   height: 1080,
 };
 
-const YELLOW = "#EDD286";
 const NUM_IMAGES = 5;
 const SEGMENT = BG_VIDEO_CONFIG.durationInFrames / NUM_IMAGES; // 42 frames each
 const CROSS_FADE = 8; // frames to crossfade between images
@@ -97,12 +96,6 @@ function kenBurnsStyle(frame: number, index: number): React.CSSProperties {
 export const DelveBackground: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Yellow diagonal band drifts slowly across the full 210 frames
-  const bandX = interpolate(frame, [0, BG_VIDEO_CONFIG.durationInFrames], [-200, 2120], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
   return (
     <AbsoluteFill style={{ backgroundColor: "#0A0F1E", overflow: "hidden" }}>
 
@@ -141,22 +134,6 @@ export const DelveBackground: React.FC = () => {
         style={{
           background:
             "radial-gradient(ellipse 110% 80% at 50% 50%, transparent 35%, rgba(0,0,0,0.45) 100%)",
-        }}
-      />
-
-      {/* Yellow diagonal accent band — slowly sweeps across the frame */}
-      <div
-        style={{
-          position: "absolute",
-          top: -300,
-          left: bandX,
-          width: 120,
-          height: 1680,
-          backgroundColor: YELLOW,
-          opacity: 0.18,
-          transform: "rotate(-35deg)",
-          transformOrigin: "top left",
-          pointerEvents: "none",
         }}
       />
 
