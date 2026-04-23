@@ -9,15 +9,15 @@ import {
 } from "remotion";
 
 export const BG_VIDEO_CONFIG = {
-  durationInFrames: 210, // 7s @ 30fps
+  durationInFrames: 420, // 14s @ 30fps
   fps: 30,
   width: 1920,
   height: 1080,
 };
 
 const NUM_IMAGES = 5;
-const SEGMENT = BG_VIDEO_CONFIG.durationInFrames / NUM_IMAGES; // 42 frames each
-const CROSS_FADE = 8; // frames to crossfade between images
+const SEGMENT = BG_VIDEO_CONFIG.durationInFrames / NUM_IMAGES; // 84 frames each
+const CROSS_FADE = 16; // frames to crossfade between images
 
 const IMAGES = [
   staticFile("images/img1.jpg"),
